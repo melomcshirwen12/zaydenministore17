@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zayden Mini Store</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+   <!-- 🔐 Login / Sign Up Page -->
+<section id="login-section">
+  <div class="login-card">
+    <h2 id="form-title">Welcome to Zayden Mini Store 🛒</h2>
+    <p id="form-subtitle">Please log in to continue</p>
+
+    <form id="login-form" onsubmit="return handleLogin(event)">
+  <input type="text" id="username" placeholder="Username" required />
+  <input type="password" id="password" placeholder="Password" required />
+
+  <label class="remember-me">
+    <input type="checkbox" id="remember" /> Remember Me
+  </label>
+
+  <button type="submit" class="login-btn">Login</button>
+
+  <p class="toggle-text">
+    Don’t have an account? 
+    <a href="#" onclick="toggleForm()">Sign Up</a>
+  </p>
+</form>
+    <form id="signup-form" onsubmit="return handleSignup(event)" style="display:none;">
+      <input type="text" id="new-username" placeholder="Create username" required />
+      <input type="password" id="new-password" placeholder="Create password" required />
+
+      <button type="submit" class="login-btn">Sign Up</button>
+
+      <p class="toggle-text">
+        Already have an account? 
+        <a href="#" onclick="toggleForm()">Login</a>
+      </p>
+    </form>
+  </div>
+</section>
+<!-- 🧭 Navigation Bar -->
+<header class="navbar">
+  <div class="nav-left">
+    <button class="toggle-menu" onclick="toggleMenu()">☰</button>
+    <h1 class="app-title">Zayden Mini Store</h1>
+  </div>
+  <div class="nav-right">
+    <span id="welcome-user" class="welcome-user"></span>
+    <button id="logout-btn" onclick="logout()" class="logout-btn" style="display:none;">
+      Logout
+    </button>
+  </div>
+</header>
+
+  <!-- 🏪 Store Banner -->
+<section id="banner-section">
+  <div class="banner">
+    <h2>Welcome to Zayden Mini Store 🛍️</h2>
+    <p>Fresh groceries. Fast delivery. Everyday essentials.</p>
+  </div>
+</section>
+  <!-- 🛒 Cart Section -->
+<section id="cart-section" style="display: none;">
+  <h2>Your Cart</h2>
+  <div id="cart-items"></div>
+
+  <div id="cart-total">
+  <h3>Total: $<span id="total-amount">0</span></h3>
+
+  <div class="cart-buttons">
+   <button class="checkout-btn" onclick="checkout()">
+  <i class="fa-solid fa-cart-shopping"></i> Checkout
+</button>
+
+<button class="continue-btn" onclick="showSection('home')">
+  <i class="fa-solid fa-house"></i> Continue Shopping
+</button>
+
+  </div>
+</div>
+
+</section>
+    <main id="home-section">
+    <input type="text" id="search" placeholder="Search products..." onkeyup="searchProducts()">
+    <div class="categories" id="categories"></div>
+    <div class="products" id="product-list"></div>
+  </main>
+
+  <main id="cart-section" style="display:none;">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <h3 id="total">Total: $0.00</h3>
+    <button id="checkout-btn" onclick="checkout()">Checkout</button>
+  </main>
+<!-- ✅ Thank You Section -->
+<section id="thankyou-section" style="display: none; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; text-align: center;">
+  <div class="success-animation">
+    <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+      <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+      <path class="checkmark-check" fill="none" d="M14 27l7 7 16-16"/>
+    </svg>
+  </div>
+
+  <h2>Order Successful! 🎉</h2>
+  <p><strong>Thank you for shopping us!</strong></p>
+
+  <button class="continue-btn" onclick="showSection('home')">
+    🏠 Back to Home
+  </button>
+</section>
+
+    <!-- Floating Cart Icon -->
+<div id="floating-cart" onclick="showSection('cart')">
+  🛒
+  <span id="floating-cart-count">0</span>
+</div>
+  <footer>
+    <p>© 2025 Zayden Mini Store. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

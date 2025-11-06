@@ -1,0 +1,768 @@
+* 
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #fefefe;
+  color: #333;
+}
+/* 🔐 Login Page Styling */
+#login-section {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #4caf50, #ffcc33);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  font-family: 'Poppins', sans-serif;
+}
+
+.login-card {
+  background: white;
+  border-radius: 20px;
+  padding: 30px 25px;
+  width: 90%;
+  max-width: 340px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  text-align: center;
+  animation: fadeIn 0.6s ease;
+}
+
+.login-card h2 {
+  color: #388e3c;
+  margin-bottom: 10px;
+}
+
+.login-card p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.login-card input:focus {
+  border-color: #4caf50;
+}
+
+.login-btn {
+  background: linear-gradient(135deg, #4caf50, #81c784);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.login-btn:hover {
+  background: linear-gradient(135deg, #66bb6a, #a5d6a7);
+  transform: translateY(-2px);
+}
+
+.toggle-text {
+  font-size: 0.9em;
+  margin-top: 15px;
+}
+
+.toggle-text a {
+  color: #4caf50;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* 🧭 Navigation bar styling */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #4caf50, #81c784);
+  padding: 10px 15px;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app-title {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.toggle-menu {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.welcome-user {
+  font-weight: 500;
+  font-size: 0.95em;
+}
+
+.logout-btn {
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #d32f2f;
+}
+
+/* Hide main content initially */
+body:not(.logged-in) #home,
+body:not(.logged-in) #cart-section,
+body:not(.logged-in) #thankyou-section {
+  display: none;
+}
+/* 🧠 Remember Me + Logout button */
+.remember-me {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 15px;
+  user-select: none;
+}
+
+.remember-me input {
+  margin-right: 8px;
+  accent-color: #4caf50;
+}
+
+.logout-btn {
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background: #e53935;
+}
+
+header {
+  background-color: #2a9d8f;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  gap: 15px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+@media(max-width: 700px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background: #2a9d8f;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 150px;
+  }
+  nav.active { display: flex; }
+  .menu-toggle { display: block; }
+}
+
+/* 🏪 Banner */
+#banner-section {
+  background: linear-gradient(135deg, #ff8c00, #ffcc33);
+  color: white;
+  text-align: center;
+  padding: 25px 15px;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#banner-section .banner h2 {
+  margin: 0;
+  font-size: 1.6em;
+  font-weight: 700;
+}
+
+#banner-section .banner p {
+  margin: 5px 0 0;
+  font-size: 0.95em;
+}
+/* 🛒 Cart Item Layout */
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff8f0;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.cart-item .item-info {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.cart-thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+/* 🛒 Cart Buttons - Modern Design */
+.cart-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Shared style */
+.cart-buttons button {
+  border: none;
+  border-radius: 50px;
+  padding: 10px 25px;
+  font-size: 1em;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+/* 🟢 Checkout Button */
+.checkout-btn {
+  background: linear-gradient(135deg, #4caf50, #81c784);
+  color: white;
+}
+
+.checkout-btn:hover {
+  background: linear-gradient(135deg, #66bb6a, #a5d6a7);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+/* 🟠 Continue Shopping Button */
+.continue-btn {
+  background: linear-gradient(135deg, #ffb347, #ffcc33);
+  color: white;
+}
+
+.continue-btn:hover {
+  background: linear-gradient(135deg, #ffc14d, #ffdb4d);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+main {
+  padding: 15px;
+}
+#search {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.category-btn {
+  background-color: #e9c46a;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.category-btn.active, .category-btn:hover {
+  background-color: #f4a261;
+  color: white;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.product {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+}
+
+.product img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.product h3 {
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+.product p {
+  color: #555;
+}
+
+button {
+  background-color: #2a9d8f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+button:hover {
+  background-color: #21867a;
+}
+
+#cart-section h2 {
+  margin-bottom: 10px;
+  color: #2a9d8f;
+}
+
+#cart-items {
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.cart-item span {
+  font-weinght: bold;
+}
+
+footer {
+  background: #2a9d8f;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
+/* Thank You Page */
+#thankyou-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  animation: fadeIn 0.6s ease;
+}
+
+.thankyou-card {
+  background: white;
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 300px;
+  animation: popIn 0.5s ease;
+}
+
+.checkmark {
+  font-size: 60px;
+  color: #2a9d8f;
+  margin-bottom: 10px;
+  animation: bounce 0.6s ease;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Floating Cart Icon */
+#floating-cart {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #2a9d8f;
+  color: white;
+  font-size: 26px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+  z-index: 999;
+}
+
+#floating-cart:hover {
+  background-color: #21867a;
+  transform: scale(1.05);
+}
+
+#floating-cart-count {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  background-color: #f4a261;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+/* Floating Cart Fade Animation */
+#floating-cart {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff8c00;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  z-index: 999;
+}
+
+#floating-cart.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+
+/* Preloader Styles */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #2a9d8f, #e9c46a);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  color: white;
+  font-size: 18px;
+  animation: fadeOut 0.5s ease 2s forwards;
+}
+
+.spinner {
+  font-size: 60px;
+  animation: spin 1.2s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+/* ✅ Success Animation */
+.success-animation {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+}
+
+.checkmark {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #4caf50;
+  stroke-miterlimit: 10;
+  box-shadow: inset 0px 0px 0px #4caf50;
+  animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+  position: relative;
+}
+
+.checkmark-circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #4caf50;
+  opacity: 0.2;
+  animation: circle .6s ease-in-out forwards;
+}
+
+.checkmark-stem {
+  position: absolute;
+  width: 6px;
+  height: 25px;
+  background-color: #4caf50;
+  left: 47px;
+  top: 38px;
+  transform: rotate(45deg);
+  transform-origin: bottom left;
+  animation: stem .3s ease-in-out .4s forwards;
+  opacity: 0;
+}
+
+.checkmark-kick {
+  position: absolute;
+  width: 6px;
+  height: 45px;
+  background-color: #4caf50;
+  left: 41px;
+  top: 51px;
+  transform: rotate(-45deg);
+  transform-origin: top right;
+  animation: kick .3s ease-in-out .7s forwards;
+  opacity: 0;
+}
+
+@keyframes fill {
+  100% { box-shadow: inset 0px 0px 0px 40px #4caf50; }
+}
+
+@keyframes scale {
+  0%, 100% { transform: none; }
+  50% { transform: scale3d(1.1, 1.1, 1); }
+}
+
+@keyframes circle {
+  0% { opacity: 0; transform: scale(0); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes stem {
+  100% { opacity: 1; }
+}
+
+@keyframes kick {
+  100% { opacity: 1; }
+}
+/* 🎉 Confetti Animation */
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+/* ✅ Modern Checkmark Success Animation */
+.success-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.checkmark {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  box-shadow: inset 0px 0px 0px #4caf50;
+  animation: fill-green .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+  position: relative;
+}
+
+.checkmark-circle {
+  stroke: #4caf50;
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 3;
+  stroke-miterlimit: 10;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+  transform-origin: 50% 50%;
+  stroke: #fff;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke-width: 3;
+  animation: stroke 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+}
+
+@keyframes stroke {
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes scale {
+  0%, 100% { transform: none; }
+  50% { transform: scale3d(1.1, 1.1, 1); }
+}
+
+@keyframes fill-green {
+  100% { box-shadow: inset 0px 0px 0px 60px #4caf50; }
+}
+/* 🌿 Thank You Page Background Glow */
+#thankyou-section {
+  background: linear-gradient(135deg, #ffffff, #e8f5e9);
+  animation: thankyou-glow 6s ease-in-out infinite alternate;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+  transition: all 0.4s ease;
+}
+
+@keyframes thankyou-glow {
+  0% {
+    background: linear-gradient(135deg, #ffffff, #e8f5e9);
+  }
+  50% {
+    background: linear-gradient(135deg, #f1f8e9, #c8e6c9);
+  }
+  100% {
+    background: linear-gradient(135deg, #e8f5e9, #a5d6a7);
+  }
+}
+
+/* Optional: make the text glow slightly too */
+#thankyou-section h2 {
+  color: #2e7d32;
+  text-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+#thankyou-section p {
+  color: #388e3c;
+}
+#thankyou-section {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+#thankyou-section.active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
