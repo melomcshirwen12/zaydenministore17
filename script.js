@@ -84,7 +84,7 @@ window.addEventListener('load', () => {
   }, 2000);
 });
 const products = [
-  { id: 1, name: 'Apple', category: 'Fruits', price: 1.5, image: "apple.jpg" },
+  { id: 1, name: 'Apple', category: 'Fruits', price: 1.5, image: "zaydenministore17/apple.jpg" },
   { id: 2, name: 'Banana', category: 'Fruits', price: 1.2, image: "banana.jpg"},
   { id: 3, name: 'Carrot', category: 'Vegetables', price: 0.8, image: "carrot.jpg" },
   { id: 4, name: 'Milk', category: 'Dairy', price: 2.5, image: "milk.jpg" },
