@@ -84,16 +84,16 @@ window.addEventListener('load', () => {
   }, 2000);
 });
 const products = [
-  { id: 1, name: 'Apple', category: 'Fruits', price: 1.5, image: "images/apple.jpg" },
-  { id: 2, name: 'Banana', category: 'Fruits', price: 1.2, image: "images/banana.jpg"},
-  { id: 3, name: 'Carrot', category: 'Vegetables', price: 0.8, image: "images/carrot.jpg" },
-  { id: 4, name: 'Milk', category: 'Dairy', price: 2.5, image: "images/milk.jpg" },
-  { id: 5, name: 'Chips', category: 'Snacks', price: 1.8, image: "images/chips.jpg" },
-  { id: 6, name: 'Strawberry', category: 'Fruits', price: 1.3, image: "images/strawberry.jpg" },
-  { id: 7, name: 'Orange', category: 'Fruits', price: 1.1, image: "images/orange.jpg" },
-  { id: 8, name: 'Cola', category: 'Snacks', price: 0.9, image: "images/cola.jpg" },
-  { id: 9, name: 'Squash', category: 'Vegetables', price: 2.1, image: "images/squash.jpg" },
-  { id: 10,name: 'Grapes', category: 'Fruits', price: 2.5, image: "images/grapes.jpg" },
+  { id: 1, name: 'Apple', category: 'Fruits', price: 1.5, image: "apple.jpg" },
+  { id: 2, name: 'Banana', category: 'Fruits', price: 1.2, image: "banana.jpg"},
+  { id: 3, name: 'Carrot', category: 'Vegetables', price: 0.8, image: "carrot.jpg" },
+  { id: 4, name: 'Milk', category: 'Dairy', price: 2.5, image: "milk.jpg" },
+  { id: 5, name: 'Chips', category: 'Snacks', price: 1.8, image: "chips.jpg" },
+  { id: 6, name: 'Strawberry', category: 'Fruits', price: 1.3, image: "strawberry.jpg" },
+  { id: 7, name: 'Orange', category: 'Fruits', price: 1.1, image: "orange.jpg" },
+  { id: 8, name: 'Cola', category: 'Snacks', price: 0.9, image: "cola.jpg" },
+  { id: 9, name: 'Squash', category: 'Vegetables', price: 2.1, image: "squash.jpg" },
+  { id: 10,name: 'Grapes', category: 'Fruits', price: 2.5, image: "grapes.jpg" },
 
 ];
 
